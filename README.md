@@ -5,8 +5,9 @@ This workflow can computationally calculate properties for hydrogen-bonding cata
 
 Dependencies
 
-rdkit
-numpy
-ORCA v. 4.1
-XTB v. 6.1
+•	rdkit
+•	numpy
+•	ORCA v. 4.1
+•	XTB v. 6.1
+
 
