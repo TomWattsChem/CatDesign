@@ -9,5 +9,6 @@ Dependencies
 •	numpy
 •	ORCA v. 4.1
 •	XTB v. 6.1
+• OpenBabel
 
 
