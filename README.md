@@ -47,5 +47,5 @@ o) L, B1 and B5 values are calculated with “sterimol.py” (it automatically c
 
 [1]	A. V. Brethomé, S. P. Fletcher, and R. S. Paton, "Conformational Effects on Physical-Organic Descriptors–the Case of Sterimol Steric Parameters," ACS Catalysis, 2019.
 
-
+For the ML model
 
