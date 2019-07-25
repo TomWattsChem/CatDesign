@@ -49,4 +49,4 @@ o) L, B1 and B5 values are calculated with “sterimol.py” (it automatically c
 
 For the ML model
 
-The above descriptors are given to MatLab
+The above descriptors are given to MatLab along with the fingerprints of the substrates (and the catalysts for Model 3). "fingerprints.py" is used to convert the SMILES strings to fingerprints. As an input the script needs "Cat.smi" & "Sub.smi" which are the SMILES strings for the catalysts and the substrates respectivly. Also, "list.csv" contains information about the solvents and the temperatures used for each reaction. Finally, ORCA-cat.csv, contains all the descriptors that were extracted from the workflow above.
