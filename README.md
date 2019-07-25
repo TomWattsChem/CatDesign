@@ -12,9 +12,9 @@ For the physical and chemical descriptors
 
 a) The SMILES strings of the catalysts are used as an input for "smileTopdb.py". The user has to give a .txt file with SMILE strings of interest and the pdb files will be created.
 
-b) The catalysts are fitted to the core with "FitWithRDKIT.py". The user gives as an input the pdb files and the core.sdf. New pdb files will be created.
+b) The catalysts are fitted to the core with "FitWithRDKIT.py". The user gives as an input the pdb files and a core.sdf. New pdb files will be created.
 
-c)The fluoride ion is added to the pdb files with "add_F.py". It will always be placed at the end of the file. The pdb files of the catalysts and the coordinates of the fluoride ion are needed as input.
+c)The fluoride ion is added to the pdb files with "add_F.py". It will always be placed at the end of the file. The pdb files of the catalysts and the coordinates of the fluoride ion are needed as an input.
 
 d)To generate conformers XTB v. 6.1 is used. The pdb files of the catalyst-fluoride complex, are converted to xyz files with OpenBabel ("obabel filename.pdb -O filename.xyz") and given to XTB.
 
@@ -22,13 +22,13 @@ e) A series of .scoord files will be created. "coord2xyz.py" is used to convert 
 
 f) Some of the conformations will be irrelevant, "accessible_F.py" excludes these conformations. The xyz files are needed as inputs.
 
-g) Some of the remaining conformations will be very similar to each other, "rmsdexclude.py" will exclude conformations that differ less than 1Å. The script pdb files so OpenBabel is used again ("obabel filename.xyz -O filename.pdb").
+g) Some of the remaining conformations will be very similar to each other, "rmsdexclude.py" will exclude conformations that differ for less than 1Å. The script reads pdb files so OpenBabel is used again ("obabel filename.xyz -O filename.pdb").
 
-h) Single point energies at the PBE-D3BJ/def2-SVP level of theory are calculated with ORCA. "ORCAmin.py" generates the input files. As an input the xyz files of the conformation of interest are needed.
+h) Single point energies at the PBE-D3BJ/def2-SVP level of theory are calculated with ORCA. "ORCAmin.py" generates the input files. As an input the xyz files of the conformations of interest are needed.
 
 i) The conformations are weighted according to Boltzmann's distribution. "Boltzmann.py" takes as an input the output files from ORCA and returns as an output a csv file, with the conformations that contribute up to 90%.
 
-j) Optimizations at the same level of theory are performed, for the conformers that contribute up to 90% of the population. “ORCA_input1.py” generates the input files. As an input the xyz files of the conformation of interest are needed.
+j) Optimizations at the same level of theory are performed, for the conformers that contribute up to 90% of the population. “ORCA_input1.py” generates the input files. As an input the xyz files of the conformations of interest are needed.
 
 k) The final single point energies are sorted with “Energy_sort.py” which uses as an input the output files of the ORCA calculations and returns a csv file with the lowest energy conformer.
 
