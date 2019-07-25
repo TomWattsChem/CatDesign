@@ -3,8 +3,11 @@ A computer aided workflow for catalyst design.
 This workflow is designed to computationally calculate properties for hydrogen-bonding catalysts. For each catalyst physical, chemical and structural descriptors are calculated and then given as an input to a machine learning (ML) model. The aim is to use the knowledge gained from previous analysis to predict the reactivity of new catalysts. The code is written in Python 3. MatLab is used for the ML analysis.
 Dependencies
 • rdkit • numpy • ORCA v. 4.1 • XTB v. 6.1 • OpenBabel • MatLab
+
 The scripts are used as follows:
+
 For the physical and chemical descriptors
+
 a) The SMILES strings of the catalysts are used as an input for "smileTopdb.py". The user has to give a .txt file with SMILE strings of interest and the pdb files will be created.
 
 b) The catalysts are fitted to the core with "FitWithRDKIT.py". The user gives as an input the pdb files and the core.sdf. New pdb files will be created.
