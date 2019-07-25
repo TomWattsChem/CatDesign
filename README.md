@@ -49,3 +49,4 @@ o) L, B1 and B5 values are calculated with “sterimol.py” (it automatically c
 
 For the ML model
 
+The above descriptors are given to MatLab
