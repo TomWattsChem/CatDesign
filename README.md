@@ -1,7 +1,9 @@
 # CatalystDesign
 A computer aided workflow for catalyst design.
 This workflow is designed to computationally calculate properties for hydrogen-bonding catalysts. For each catalyst physical, chemical and structural descriptors are calculated and then given as an input to a machine learning (ML) model. The aim is to use the knowledge gained from previous analysis to predict the reactivity of new catalysts. The code is written in Python 3. MatLab is used for the ML analysis.
-Dependencies
+
+Dependencies:
+
 • rdkit • numpy • ORCA v. 4.1 • XTB v. 6.1 • OpenBabel • MatLab
 
 The scripts are used as follows:
