@@ -7,7 +7,7 @@ from os.path import isfile, join
 import datetime
 from glob import glob
 import re
-from sterimoltools import *
+from sterimoltools2Toms import *
 import pandas
 import csv
 ########################################
@@ -44,6 +44,7 @@ def Sterimol(atomid1, atomid2, n,directory , verbose = "False"):
                     total = []
                     print("I am here")
                     for i in range (len(atomid1)):
+                            print(directory)
                             file_Params = calcSterimol(directory, "bondi", int(atomid1[i]), int(atomid2[i]), verbose)
                             print("NOW I am here")
                             lval = file_Params.lval; B1 = file_Params.B1; B5 = file_Params.newB5
@@ -60,35 +61,35 @@ if __name__ == '__main__':
 #   one file contains documents with the ids of the pairs we want to calculate sterimol parameters for
 #   the other files should contain the pdb files of the molecules we want to calulate sterimol parameters for
 
-    file_list = glob("/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt/atoms")
+    file_list = glob("/mnt/d/Sterimol/Examples/Model5/atoms/*")
     all_files = []
-    for file in os.listdir("/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt/atoms"):
+    for file in os.listdir("/mnt/d/Sterimol/Examples/Model5/atoms"):
         if file.endswith(".txt"):
-            all_files.append(os.path.join("/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt/atoms", file))
+            all_files.append(os.path.join("/mnt/d/Sterimol/Examples/Model5/atoms", file))
     all_files.sort(key=natural_keys)
 
-    file_list1 = glob("/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt")
+    file_list1 = glob("/mnt/d/Sterimol/Examples/Model5/*")
     all_files1 = []
-    for file1 in os.listdir("/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt"):
+    for file1 in os.listdir("/mnt/d/Sterimol/Examples/Model5"):
         if file1.endswith(".pdb"):
-            all_files1.append(os.path.join("/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt", file1))
+            all_files1.append(os.path.join("/mnt/d/Sterimol/Examples/Model5", file1))
     all_files1.sort(key=natural_keys)
     T2=[]
 
-    for k in range(len(all_files)):
+    for k in range(56,len(all_files)):
     
         p=all_files[k].split('/')
         p1=all_files1[k].split('/')
-        numb1=p1[10]
-        print (p1[10])
-        numb=p[11]
-        print (p[11])
+        numb1=p1[6]
+        print (p1[6])
+        numb=p[6]
+        print (p[6])
         
         id1,id2 = idfile2ids(all_files[k])
         print(id1,id2)
-        T2 = Sterimol(id1,id2,numb1,"/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt/%s" %numb1,"False")
+        T2 = Sterimol(id1,id2,numb1,"/mnt/d/Sterimol/Examples/Model5/%s" %numb1,"False")
         print(T2)
         df = pandas.DataFrame(T2)
-        df.to_csv('/Users/matina/Desktop/modifications/scaffolds/scaffoldsopted/Modifications3-3/optimisedModifications/SatEt/SatEt3-3Sterimol.csv',sep=",", float_format='%.2f',line_terminator='\n',encoding='utf-8')
+        df.to_csv('/mnt/d/Sterimol/Model5.csv',sep=",", float_format='%.2f',line_terminator='\n',encoding='utf-8')
         del id1[:]
         del id2[:]

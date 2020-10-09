@@ -1,19 +1,16 @@
 from __future__ import print_function
-import rdkit
-from rdkit import Chem, DataStructs
-from rdkit.Chem import AllChem
 
 import numpy
 import pandas as pd
 
 #Open Reaction Matrix List
 
-df=pd.read_csv('/Users/matina/Desktop/descriptors/List.csv', sep=',',header=None)
+df=pd.read_csv('/mnt/d/Sterimol/CatDesign/List.csv', sep=',',header=None)
 df.columns=['Substrate','Catalyst', 'Solvent','Temp']
 
 #Import catalyst and substrate descriptors
-cat=pd.read_csv('/Users/matina/Desktop/descriptors/CATALYSTS.csv', sep=',',header=None)
-sub=pd.read_csv('/Users/matina/Desktop/descriptors/SUBSTRATES.csv', sep=',',header=None)
+cat=pd.read_csv('/mnt/d/Sterimol/Examples/Model5/Orcacats.csv', sep=',',header=None)
+sub=pd.read_csv('/mnt/d/Sterimol/Examples/sub_lowest_xyz/SUBSTRATES_Matrix.csv', sep=',',header=None)
 
 a=df.shape[0]
 b=cat.shape[1]+sub.shape[1]+2
@@ -40,7 +37,7 @@ for index, row in df.iterrows():
 
 
 #save matrix
-numpy.savetxt("/Users/matina/Desktop/descriptors/ORCA_All_Lowest.csv", d, delimiter=",")
+numpy.savetxt("/mnt/d/Sterimol/Model5Toms.csv", d, delimiter=",")
 
 
 
